@@ -6,7 +6,7 @@ static void MainMenu()
 {
     Console.Write("\nOptions" +
         ":\n");
-    Console.Write("1: Parity\n2: Quadratic\n3: PROSJEK\n4: ZNAMENKE\n5: LOTO\n6: LISTIĆ\n7: OSOBA\n8: PDF\n9: EXIT");
+    Console.Write("1: Parity\n2: Quadratic\n3: Average\n4: ZNAMENKE\n5: LOTO\n6: LISTIĆ\n7: OSOBA\n8: PDF\n9: EXIT");
 
     int input;
 

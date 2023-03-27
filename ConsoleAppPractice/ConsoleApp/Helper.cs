@@ -31,5 +31,16 @@ namespace ConsoleApp
 
             return result;
         }
+
+
+        public static string GetStringFromConsole(string message)
+        {
+            string output = "";
+
+            Console.Write(message);
+            output = Console.ReadLine();
+
+            return output;
+        }
     }
 }
