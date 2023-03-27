@@ -9,9 +9,12 @@ namespace ConsoleApp
     public static class Ticket
     {
 
-        public static void StreamWriterWrite()
+
+
+
+        public static void WriteLotoToTxt(int min, int max)
         {
-            string lotoString = Loto.GenerateLotoString(6, 49);
+            string lotoString = Loto.GenerateLotoString(min, max);
 
             string fileName = $"C:\\Users\\student\\Documents\\Luka\\consoleapp.txt";
 
