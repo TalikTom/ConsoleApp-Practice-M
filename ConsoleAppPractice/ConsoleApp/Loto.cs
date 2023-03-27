@@ -24,7 +24,7 @@ namespace ConsoleApp
                 {
                     int randomNum = rnd.Next(min, max);
                     list.Add(randomNum);
-                    if (index == (min-1))
+                    if (index == (min - 1))
                     {
                         break;
                     }
@@ -61,5 +61,38 @@ namespace ConsoleApp
 
 
         }
+
+        public static string GenerateLotoString(int min, int max)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            List<int> list = new List<int>();
+            Random rnd = new Random();
+            int index = 0;
+
+            while (true)
+            {
+                int randomNum = rnd.Next(min, max);
+                list.Add(randomNum);
+                if (index == (min - 1))
+                {
+                    break;
+                }
+                index++;
+            }
+
+            sb.AppendLine($"Your lucky {min} numbers are: ");
+
+            foreach (int i in list)
+            {
+                sb.AppendLine(i.ToString());
+            }
+
+            return sb.ToString();
+
+        }
+
+
+
     }
 }
