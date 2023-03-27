@@ -112,5 +112,13 @@ namespace ConsoleApp
             return count;
         }
 
+        public static void CountPeopleBornBefore2000()
+        {
+            int count = people.Count(p => p.DOB.Year < 2000);
+            Console.WriteLine($"Number of people born before 2000: {count}");
+            Console.WriteLine("Press enter to return to person menu\n");
+            Console.ReadLine();
+        }
+
     }
 }

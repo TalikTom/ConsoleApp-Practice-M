@@ -55,8 +55,9 @@ static void MainMenu()
             break;
 
         case 8:
-            Loto.simpleCreatePDF(Loto.LotoString);
-
+            Loto.simpleCreatePDF(Loto.lotoString);
+            Console.Clear();
+            MainMenu();
             break;
 
 
@@ -79,7 +80,7 @@ static void MainMenu()
     {
         Console.Write("\nOptions" +
             ":\n");
-        Console.Write("1: Add people\n2: View People\n3: Get oldest person\n4: Get youngest person\n5: Number of males\n6: Number of females\n7: Get number of people born before year 2000\n9: Back to main menu");
+        Console.Write("1: Add people\n2: View People\n3: Get oldest person\n4: Get youngest person\n5: Number of males\n6: Number of females\n7: Get number of people born before year 2000\n8: Back to main menu");
 
         int result = Helper.GetIntFromConsole("\nChoose your option: ");
 
@@ -122,15 +123,12 @@ static void MainMenu()
                 break;
 
             case 7:
-
+                Person.CountPeopleBornBefore2000();
+                Console.Clear();
+                PersonMenu();
                 break;
-
+       
             case 8:
-               
-                break;
-
-
-            case 9:
                 Console.Clear();
                 MainMenu();                
 
@@ -138,7 +136,7 @@ static void MainMenu()
 
             default:
                 Console.Clear();
-                Console.Write("Not, fair... Input correct option between 1 and 9\n");
+                Console.Write("Not, fair... Input correct option between 1 and 8\n");
                 MainMenu();
                 break;
 

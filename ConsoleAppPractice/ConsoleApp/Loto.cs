@@ -13,45 +13,35 @@ namespace ConsoleApp
     public static class Loto
     {
 
-        public static string LotoString { get; set; }
-        public static void GenerateLoto(int min, int max)
+        public static string lotoString { get; set; }
+        public static string GenerateLoto(int min, int max)
         {
+            StringBuilder sb = new StringBuilder();
+            Random rnd = new Random();
 
             while (true)
             {
+                sb.AppendLine($"Your lucky {min} numbers are: ");
 
                 List<int> list = new List<int>();
-                Random rnd = new Random();
-                int index = 0;
-
-                while (true)
+                for (int i = 0; i < min; i++)
                 {
-                    int randomNum = rnd.Next(min, max);
-                    list.Add(randomNum);
-                    if (index == (min - 1))
+                    int randomNum;
+                    do
                     {
-                        break;
-                    }
-                    index++;
+                        randomNum = rnd.Next(min, max);
+                    } while (list.Contains(randomNum));
+                    list.Add(randomNum);
                 }
 
-                Console.WriteLine($"Your lucky {min} numbers are: ");
-
-                foreach (int i in list)
+                foreach (int num in list)
                 {
-                    Console.WriteLine(i);
+                    sb.AppendLine(num.ToString());
+                    Console.WriteLine(num);
                 }
 
-                Console.WriteLine($"Do you want to generate new {min} lucky numbers (they won't be as lucky as the first set)? (Y/N)");
-
-
-
+                Console.WriteLine($"Do you want to generate new {min} lucky numbers? (Y/N)");
                 string answer = Console.ReadLine();
-
-                if (answer.ToLower() == "n")
-                {
-                    break;
-                }
 
                 while (answer.ToLower() != "y" && answer.ToLower() != "n")
                 {
@@ -59,11 +49,16 @@ namespace ConsoleApp
                     answer = Console.ReadLine();
                 }
 
+                if (answer.ToLower() == "n")
+                {
+                    break;
+                }
             }
+           
 
+            lotoString = sb.ToString();
 
-
-
+            return lotoString;
         }
 
         public static string GenerateLotoString(int min, int max)
@@ -91,9 +86,10 @@ namespace ConsoleApp
             {
                 sb.AppendLine(i.ToString());
             }
-            LotoString = sb.ToString();
 
-            return LotoString;
+            lotoString = sb.ToString();
+
+            return lotoString;
 
         }
 
@@ -122,9 +118,9 @@ namespace ConsoleApp
             XStringFormats.Center);
 
             // Save the document...
-            string fileName = $"C:\\Users\\student\\Documents\\Luka\\test2.pdf";
+            string fileName = $"C:\\Users\\student\\Documents\\Luka\\LuckyNumbers.pdf";
             document.Save(fileName);
-            Console.WriteLine("PDF Generated!");
+            
         }
 
 
