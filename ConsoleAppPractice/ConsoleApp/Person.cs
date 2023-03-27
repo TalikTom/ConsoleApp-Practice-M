@@ -10,7 +10,13 @@ namespace ConsoleApp
 {
     public class Person
     {
-        public static List<PersonModel> people = new List<PersonModel>();
+        public static List<PersonModel> people = new List<PersonModel>()
+        {
+             new PersonModel { FirstName = "Arsen", LastName = "Dedic", DOB = new DateTime(1990, 1, 1), Gender = "male"},
+               new PersonModel { FirstName = "Kico", LastName = "Slabinac", DOB = new DateTime(1988, 12, 5), Gender = "male"},
+               new PersonModel { FirstName = "Ibrica", LastName = "Jusic", DOB = new DateTime(2001, 6, 5), Gender = "male"},
+               new PersonModel { FirstName = "Toma", LastName = "Zdravkovic", DOB = new DateTime(1999, 3, 3), Gender = "male"},
+        };
 
         public static void AddPeople()
         {

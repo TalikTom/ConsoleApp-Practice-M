@@ -93,7 +93,8 @@ static void MainMenu()
 
             case 2:
                 Person.ViewPeople();
-                
+                Console.Clear();
+                PersonMenu();
                 break;
 
             case 3:
