@@ -38,7 +38,10 @@ static void MainMenu()
             break;
 
         case 4:
-            
+            Numerals.SumLastDigits();
+            Console.Clear();
+            MainMenu();
+
             break;
 
         case 6:
