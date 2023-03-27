@@ -30,7 +30,8 @@ namespace ConsoleApp
 
             string result = sb.ToString();
 
-            Logger(result);
+           
+            Logger("Loto 6 od 49 ticket", result);
             Console.WriteLine("Your ticket has been saved to .txt file, press enter to continue");
             Console.ReadLine();
 
@@ -43,18 +44,18 @@ namespace ConsoleApp
         {
             string lotoString = Loto.GenerateLotoString(min, max);
 
-            Logger(lotoString);
+            Logger("Your lucky number", lotoString);
                         
         }
 
-        public static void Logger(string value)
+        public static void Logger(string title, string value)
         {
             string fileName = $"C:\\Users\\student\\Documents\\Luka\\consoleapp.txt";
 
             using FileStream fs = File.Create(fileName);
             using StreamWriter sr = new StreamWriter(fs);
 
-
+            sr.WriteLine(title);
             sr.WriteLine(value);
 
             Console.WriteLine(value);
