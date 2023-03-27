@@ -6,17 +6,11 @@ static void MainMenu()
 {
     Console.Write("\nOptions" +
         ":\n");
-    Console.Write("1: Parity\n2: Quadratic\n3: Average\n4: ZNAMENKE\n5: LOTO\n6: LISTIĆ\n7: OSOBA\n8: PDF\n9: EXIT");
+    Console.Write("1: Parity\n2: Quadratic\n3: Average\n4: Numerals\n5: Loto\n6: LISTIĆ\n7: OSOBA\n8: PDF\n9: EXIT");
 
-    int input;
+    int result = Helper.GetIntFromConsole("\nChoose your option: ");
 
-    Console.Write("\nInput your choice: ");
-    while (!int.TryParse(Console.ReadLine(), out input))
-    {
-        Console.WriteLine("Invalid input! Please enter a valid number.\n");
-    }
-
-    switch (input)
+    switch (result)
     {
         case 1:
             Parity.CheckParity();
@@ -41,11 +35,12 @@ static void MainMenu()
             Numerals.SumLastDigits();
             Console.Clear();
             MainMenu();
-
             break;
 
-        case 6:
-
+        case 5:
+            Loto.GenerateLoto745();
+            Console.Clear();
+            MainMenu();
             break;
 
         case 7:
