@@ -96,10 +96,17 @@ namespace ConsoleApp
 
         public static void simpleCreatePDF(string LotoString)
         {
+            string fileName = @"C:\Users\student\Documents\Luka\LuckyNumbers.pdf";
+
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             Console.WriteLine("Generating PDF...");
 
             Console.WriteLine("Your PDF document has been succesfully saved");
+            
+            Console.WriteLine("PDF file has been saved to: " + fileName);
+            Console.WriteLine("-------------------------------------------------------------------------------------");
+            Console.WriteLine("In order to remove [][] in the generated PDF file please consider Premium Console App");
+            Console.WriteLine("-------------------------------------------------------------------------------------");
             Console.WriteLine("Press enter to continue");
             Console.ReadLine();
 
@@ -107,25 +114,31 @@ namespace ConsoleApp
             var document = new PdfDocument();
             document.Info.Title = "Created with PDFsharp";
 
-            // Create an empty page
+            // Create an empty page with margins
             var page = document.AddPage();
-
-            // Get an XGraphics object for drawing
+            var margin = 20; // Set the margin size
             var gfx = XGraphics.FromPdfPage(page);
+            var width = page.Width.Point - margin * 2;
+            var height = page.Height.Point - margin * 2;
+
 
             // Create a font
             var font = new XFont("Arial", 12, XFontStyle.BoldItalic);
 
-            // Draw the text
-            gfx.DrawString(LotoString, font, XBrushes.Black,
-            new XRect(0, 0, page.Width, page.Height),
-            XStringFormats.Center);
+            // Draw the text with margins
+            var format = new XStringFormat();
+            format.Alignment = XStringAlignment.Near;
+            format.LineAlignment = XLineAlignment.Near;
+            var rect = new XRect(margin, margin, width, height);
+            gfx.DrawString(lotoString, font, XBrushes.Black, rect, format);
 
-            // Save the document...
-            string fileName = $"C:\\Users\\student\\Documents\\Luka\\LuckyNumbers.pdf";
+            // Save the document
+            
             document.Save(fileName);
 
-           
+            
+
+
 
 
         }
