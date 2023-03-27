@@ -6,7 +6,7 @@ static void MainMenu()
 {
     Console.Write("\nOptions" +
         ":\n");
-    Console.Write("1: Parity\n2: Quadratic\n3: Average\n4: Numerals\n5: Loto\n6: LISTIĆ\n7: OSOBA\n8: PDF\n9: EXIT");
+    Console.Write("1: Parity\n2: Quadratic\n3: Average\n4: Numerals\n5: Loto\n6: Ticket\n7: OSOBA\n8: PDF\n9: EXIT");
 
     int result = Helper.GetIntFromConsole("\nChoose your option: ");
 
@@ -22,7 +22,6 @@ static void MainMenu()
             Quadratic.CalculateQuadratic();
             Console.Clear();
             MainMenu();
-
             break;
 
         case 3:
@@ -38,13 +37,15 @@ static void MainMenu()
             break;
 
         case 5:
-            Loto.GenerateLoto745();
+            Loto.GenerateLoto(7,45);
             Console.Clear();
             MainMenu();
             break;
 
-        case 7:
-
+        case 6:
+            Loto.GenerateLoto(6, 49);
+            Console.Clear();
+            MainMenu();
             break;
 
         case 8:

@@ -10,37 +10,35 @@ namespace ConsoleApp
 {
     public static class Loto
     {
-        public static void GenerateLoto745()
+        public static void GenerateLoto(int min, int max)
         {
 
             while (true)
             {
 
-           
+                List<int> list = new List<int>();
+                Random rnd = new Random();
+                int index = 0;
 
-            List<int> list = new List<int>();
-            Random rnd = new Random();
-            int index = 0;
-
-            while (true)
-            {
-                int randomNum = rnd.Next(1, 45);
-                list.Add(randomNum);
-                if (index == 6)
+                while (true)
                 {
-                    break;
+                    int randomNum = rnd.Next(min, max);
+                    list.Add(randomNum);
+                    if (index == (min-1))
+                    {
+                        break;
+                    }
+                    index++;
                 }
-                index++;
-            }
 
-            Console.WriteLine("Your lucky 7 numbers are: ");
+                Console.WriteLine($"Your lucky {min} numbers are: ");
 
-            foreach (int i in list)
-            {
-                Console.WriteLine(i);
-            }
+                foreach (int i in list)
+                {
+                    Console.WriteLine(i);
+                }
 
-                Console.WriteLine("Do you want to generate new 7 lucky numbers (they won't be as lucky as the first set)? (Y/N)");
+                Console.WriteLine($"Do you want to generate new {min} lucky numbers (they won't be as lucky as the first set)? (Y/N)");
 
 
 
