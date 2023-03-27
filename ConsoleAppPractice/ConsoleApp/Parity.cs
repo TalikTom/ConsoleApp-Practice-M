@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ConsoleApp
 {
@@ -12,13 +14,7 @@ namespace ConsoleApp
         {
             while (true)
             {
-                Console.WriteLine("Enter a number to check if it's even or odd:");
-                int input;
-
-                while (!int.TryParse(Console.ReadLine(), out input))
-                {
-                    Console.WriteLine("Invalid input! Please enter a valid whole number.");
-                }
+                int input = Helper.GetIntFromConsole("Enter a number to check if it's even or odd:");
 
                 if (input % 2 == 0)
                 {

@@ -1,4 +1,6 @@
-﻿MainMenu();
+﻿using ConsoleApp;
+
+MainMenu();
 
 static void MainMenu()
 {
@@ -17,7 +19,9 @@ static void MainMenu()
     switch (input)
     {
         case 1:
-           
+            Parity.CheckParity();
+            Console.Clear();
+            MainMenu();
             break;
 
         case 2:
