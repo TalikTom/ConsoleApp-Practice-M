@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -10,6 +12,8 @@ namespace ConsoleApp
 {
     public static class Loto
     {
+
+        public static string LotoString { get; set; }
         public static void GenerateLoto(int min, int max)
         {
 
@@ -87,9 +91,40 @@ namespace ConsoleApp
             {
                 sb.AppendLine(i.ToString());
             }
+            LotoString = sb.ToString();
 
-            return sb.ToString();
+            return LotoString;
 
+        }
+
+
+        public static void simpleCreatePDF(string LotoString)
+        {
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            Console.WriteLine("Generating PDF...");
+
+            // Create a new PDF document
+            var document = new PdfDocument();
+            document.Info.Title = "Created with PDFsharp";
+
+            // Create an empty page
+            var page = document.AddPage();
+
+            // Get an XGraphics object for drawing
+            var gfx = XGraphics.FromPdfPage(page);
+
+            // Create a font
+            var font = new XFont("Arial", 12, XFontStyle.BoldItalic);
+
+            // Draw the text
+            gfx.DrawString(LotoString, font, XBrushes.Black,
+            new XRect(0, 0, page.Width, page.Height),
+            XStringFormats.Center);
+
+            // Save the document...
+            string fileName = $"C:\\Users\\student\\Documents\\Luka\\test2.pdf";
+            document.Save(fileName);
+            Console.WriteLine("PDF Generated!");
         }
 
 

@@ -1,14 +1,17 @@
-﻿using System;
+﻿using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ConsoleApp
 {
     public static class Ticket
     {
-
+        
         public static void LotoGrid(int min, int max, int breakPoint)
         {
 
@@ -47,6 +50,9 @@ namespace ConsoleApp
             Logger("Your lucky number", lotoString);
                         
         }
+
+        
+
 
         public static void Logger(string title, string value)
         {
