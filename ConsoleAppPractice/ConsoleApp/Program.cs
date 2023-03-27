@@ -55,13 +55,13 @@ static void MainMenu()
             break;
 
         case 8:
-            if (Loto.lotoString == null)
+            if (Loto.LotoString == null)
             {
                 Console.WriteLine("You have to generate Lucky numbers first, use option 5 please");
                 MainMenu();
             } else
             {
-                Loto.simpleCreatePDF(Loto.lotoString);
+                Loto.SimpleCreatePDF(Loto.LotoString);
                 Console.Clear();
                 MainMenu();
             }

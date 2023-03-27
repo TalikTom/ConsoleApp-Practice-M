@@ -13,7 +13,7 @@ namespace ConsoleApp
     public static class Loto
     {
 
-        public static string lotoString { get; set; }
+        public static string LotoString { get; set; }
         public static string GenerateLoto(int min, int max)
         {
             StringBuilder sb = new StringBuilder();
@@ -56,9 +56,9 @@ namespace ConsoleApp
             }
            
 
-            lotoString = sb.ToString();
+            LotoString = sb.ToString();
 
-            return lotoString;
+            return LotoString;
         }
 
         public static string GenerateLotoString(int min, int max)
@@ -87,14 +87,14 @@ namespace ConsoleApp
                 sb.AppendLine(i.ToString());
             }
 
-            lotoString = sb.ToString();
+            LotoString = sb.ToString();
 
-            return lotoString;
+            return LotoString;
 
         }
 
 
-        public static void simpleCreatePDF(string LotoString)
+        public static void SimpleCreatePDF(string LotoString)
         {
             string fileName = @"C:\Users\student\Documents\Luka\LuckyNumbers.pdf";
 
@@ -130,7 +130,7 @@ namespace ConsoleApp
             format.Alignment = XStringAlignment.Near;
             format.LineAlignment = XLineAlignment.Near;
             var rect = new XRect(margin, margin, width, height);
-            gfx.DrawString(lotoString, font, XBrushes.Black, rect, format);
+            gfx.DrawString(LotoString, font, XBrushes.Black, rect, format);
 
             // Save the document
             
