@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -25,8 +26,9 @@ namespace ConsoleApp
                 Console.WriteLine("Enter last name:");
                 newPerson.LastName = Console.ReadLine();
 
-                Console.WriteLine("Enter date of birth (format: MM/DD/YYYY):");
-                newPerson.DOB = DateTime.Parse(Console.ReadLine());
+                Console.WriteLine("Enter date of birth (format: DD/MM/YYYY):");
+                string dobString = Console.ReadLine();
+                newPerson.DOB = DateTime.ParseExact(dobString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
                 Console.WriteLine("Enter gender:");
                 newPerson.Gender = Console.ReadLine();
@@ -36,6 +38,18 @@ namespace ConsoleApp
                 Console.WriteLine("Do you want to add another person? (Y/N)");
                 answer = Console.ReadLine();
             } while (answer.ToLower() == "y");
+        }
+
+        public static void ViewPeople()
+        {
+            foreach (PersonModel person in people)
+            {
+                Console.WriteLine($"{person.FirstName} {person.LastName}");
+            }
+
+            Console.WriteLine("These are first and last names of the people in the list\n");
+            Console.WriteLine("Press enter to return to main menu\n");
+            Console.ReadLine();
         }
 
     }

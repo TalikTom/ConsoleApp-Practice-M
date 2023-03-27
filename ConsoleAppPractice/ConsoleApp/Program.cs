@@ -87,10 +87,13 @@ static void MainMenu()
         {
             case 1:
                 Person.AddPeople();
+                Console.Clear();
+                PersonMenu();
                 break;
 
             case 2:
-               
+                Person.ViewPeople();
+                
                 break;
 
             case 3:
