@@ -98,19 +98,28 @@ static void MainMenu()
                 break;
 
             case 3:
-               
+                Person.GetOldestPerson();
+                Console.Clear();
+                PersonMenu();
                 break;
 
             case 4:
-               
+                Person.GetYoungestPerson();
+                Console.Clear();
+                PersonMenu();
                 break;
 
             case 5:
-                
+                Person.CountGender("male");
+                Console.Clear();
+                PersonMenu();
                 break;
 
             case 6:
-                
+                Person.CountGender("male");
+                Console.Clear();
+                PersonMenu();
+                break;
                 break;
 
             case 7:
