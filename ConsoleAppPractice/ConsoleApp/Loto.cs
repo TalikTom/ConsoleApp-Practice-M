@@ -99,6 +99,10 @@ namespace ConsoleApp
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             Console.WriteLine("Generating PDF...");
 
+            Console.WriteLine("Your PDF document has been succesfully saved");
+            Console.WriteLine("Press enter to continue");
+            Console.ReadLine();
+
             // Create a new PDF document
             var document = new PdfDocument();
             document.Info.Title = "Created with PDFsharp";
@@ -120,7 +124,10 @@ namespace ConsoleApp
             // Save the document...
             string fileName = $"C:\\Users\\student\\Documents\\Luka\\LuckyNumbers.pdf";
             document.Save(fileName);
-            
+
+           
+
+
         }
 
 
