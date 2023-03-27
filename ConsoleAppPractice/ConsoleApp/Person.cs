@@ -55,7 +55,7 @@ namespace ConsoleApp
             }
 
             Console.WriteLine("These are first and last names of the people in the list\n");
-            Console.WriteLine("Press enter to return to main menu\n");
+            Console.WriteLine("Press enter to return to person menu\n");
             Console.ReadLine();
         }
 
@@ -76,7 +76,7 @@ namespace ConsoleApp
 
             Console.WriteLine($"The oldest person is {oldestPerson.FirstName} {oldestPerson.LastName} - {oldestPerson.DOB}");
            
-            Console.WriteLine("Press enter to return to main menu\n");
+            Console.WriteLine("Press enter to return to person menu\n");
             Console.ReadLine();
         }
 
@@ -96,7 +96,7 @@ namespace ConsoleApp
 
             Console.WriteLine($"The youngest person is {youngestPerson.FirstName} {youngestPerson.LastName} - {youngestPerson.DOB}");
          
-            Console.WriteLine("Press enter to return to main menu\n");
+            Console.WriteLine("Press enter to return to person menu\n");
             Console.ReadLine();
         }
 
@@ -105,6 +105,9 @@ namespace ConsoleApp
         {
             int count = people.Count(p => p.Gender == gender);
             Console.WriteLine($"There are {count} {((gender == "male") ? "males" : "females")} in the list.");
+
+            Console.WriteLine("Press enter to return to person menu\n");
+            Console.ReadLine();
 
             return count;
         }

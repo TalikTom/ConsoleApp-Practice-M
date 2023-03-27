@@ -79,7 +79,7 @@ static void MainMenu()
     {
         Console.Write("\nOptions" +
             ":\n");
-        Console.Write("1: Add people\n2: View People\n3: Get oldest person\n4: Get youngest person\n5: Number of females\n6: Number of males\n7: Get number of people born before year 2000\n9: Back to main menu");
+        Console.Write("1: Add people\n2: View People\n3: Get oldest person\n4: Get youngest person\n5: Number of males\n6: Number of females\n7: Get number of people born before year 2000\n9: Back to main menu");
 
         int result = Helper.GetIntFromConsole("\nChoose your option: ");
 
@@ -116,10 +116,9 @@ static void MainMenu()
                 break;
 
             case 6:
-                Person.CountGender("male");
+                Person.CountGender("female");
                 Console.Clear();
                 PersonMenu();
-                break;
                 break;
 
             case 7:
