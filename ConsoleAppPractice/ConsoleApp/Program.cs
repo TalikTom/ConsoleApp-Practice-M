@@ -43,7 +43,7 @@ static void MainMenu()
             break;
 
         case 6:
-            Ticket.StreamWriterWrite();
+            Ticket.LotoGrid(1, 49, 7);
             Console.Clear();
             MainMenu();
             break;
