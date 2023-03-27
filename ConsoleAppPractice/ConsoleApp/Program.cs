@@ -32,7 +32,9 @@ static void MainMenu()
             break;
 
         case 3:
-           
+            Average.CalculateGradeAverage();
+            Console.Clear();
+            MainMenu();
             break;
 
         case 4:
